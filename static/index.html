@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>API Documentation</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Management API Documentation</h1>
+        <p>This API allows for managing customer records, including creating, retrieving, updating, and deleting customer information.</p>
+        
+        <section class="api-endpoint">
+            <h2>API Endpoints</h2>
+
+            <div class="endpoint">
+                <h3>Retrieve a Customer (GET)</h3>
+                <p><strong>Endpoint:</strong> /customers/{id}</p>
+                <p><strong>Method:</strong> GET</p>
+                <p><strong>Description:</strong> Retrieves details of a specific customer by ID.</p>
+                <p><strong>Response:</strong> JSON object containing customer details.</p>
+            </div>
+
+            <div class="endpoint">
+                <h3>Retrieve All Customers (GET)</h3>
+                <p><strong>Endpoint:</strong> /customers</p>
+                <p><strong>Method:</strong> GET</p>
+                <p><strong>Description:</strong> Retrieves a list of all customers.</p>
+                <p><strong>Response:</strong> JSON array of customer objects.</p>
+            </div>
+
+            <div class="endpoint">
+                <h3>Add a New Customer (POST)</h3>
+                <p><strong>Endpoint:</strong> /customers</p>
+                <p><strong>Method:</strong> POST</p>
+                <p><strong>Description:</strong> Adds a new customer record.</p>
+                <p><strong>Request Body:</strong> JSON object containing the new customer's details.</p>
+                <p><strong>Response:</strong> JSON object of the added customer.</p>
+            </div>
+
+            <div class="endpoint">
+                <h3>Update an Existing Customer (PUT)</h3>
+                <p><strong>Endpoint:</strong> /customers/{id}</p>
+                <p><strong>Method:</strong> PUT</p>
+                <p><strong>Description:</strong> Updates an existing customer's details.</p>
+                <p><strong>Request Body:</strong> JSON object containing the customer's updated details.</p>
+                <p><strong>Response:</strong> JSON object of the updated customer.</p>
+            </div>
+
+            <div class="endpoint">
+                <h3>Delete a Customer (DELETE)</h3>
+                <p><strong>Endpoint:</strong> /customers/{id}</p>
+                <p><strong>Method:</strong> DELETE</p>
+                <p><strong>Description:</strong> Deletes a specific customer by ID.</p>
+                <p><strong>Response:</strong> JSON object of the remaining customers after deletion.</p>
+            </div>
+        </section>
+
+        <section class="error-handling">
+            <h2>Error Handling</h2>
+            <p>API uses standard HTTP status codes to indicate the success or failure of requests.</p>
+            <ul>
+                <li><strong>200 OK</strong>: The request was successful.</li>
+                <li><strong>400 Bad Request</strong>: The request was malformed or invalid.</li>
+                <li><strong>404 Not Found</strong>: The specified resource was not found.</li>
+                <li><strong>500 Internal Server Error</strong>: An error occurred on the server side.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <h2>Contact Information</h2>
+            <!-- Github at https://github.com/joxh/crm-backend-golang-->
+            <p>For more information, please visit the <a href="https://github.com/joxh/crm-backend-golang">GitHub repository</a>.</p>
+            
+        </footer>
+    </div>
+</body>
+</html>
