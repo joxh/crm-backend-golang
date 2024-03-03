@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"strconv"
@@ -94,7 +95,17 @@ func addCustomer(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 
 	var customer Customer
-	_ = json.NewDecoder(request.Body).Decode(&customer)
+	// _ = json.NewDecoder(request.Body).Decode(&customer)
+	reqBody, _ := io.ReadAll(request.Body)
+	json.Unmarshal(reqBody, &customer)
+
+	if customer.ID == 0 {
+		// writer.WriteHeader(http.StatusBadRequest)
+		// json.NewEncoder(writer).Encode(nil)
+		http.Error(writer, "Customer ID cannot be 0 or non-integer type.", http.StatusBadRequest)
+		return
+	}
+
 	err := customerTable.AddNewCustomer(customer)
 
 	if err != nil {
@@ -118,7 +129,9 @@ func updateCustomer(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	var customer Customer
-	_ = json.NewDecoder(request.Body).Decode(&customer)
+	// _ = json.NewDecoder(request.Body).Decode(&customer)
+	reqBody, _ := io.ReadAll(request.Body)
+	json.Unmarshal(reqBody, &customer)
 
 	if customer.ID != id {
 		// writer.WriteHeader(http.StatusBadRequest)
