@@ -60,9 +60,9 @@
                 <p><strong>Request Body:</strong> JSON object containing the customer's updated details. ID in body must match id of endpoint url. All fields must be supplied.</p>
                 <p><strong>Response:</strong> JSON array of all customer objects.</p>
                 <p><strong>Example Request:</strong></p>
-                <pre><code>curl -X PUT http://localhost:3000/customers/4 -H 'Content-Type: application/json' -d \d
+                <pre><code>curl -X PUT http://localhost:3000/customers/1 -H 'Content-Type: application/json' -d \d
 '{
-    "id": 4,
+    "id": 1,
     "name": "Jane Doe Updated",
     "role": "Admin",
     "email": "jane.doe.updated@example.com",
