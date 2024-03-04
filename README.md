@@ -1,7 +1,7 @@
 # Customer Relationship Management Service (Golang)
 
 Author: [Joshua Schoenfield](https://github.com/joxh)
-Code: [GitHub](https://github.com/joxh/crm-backend-golang)
+Code: [GitHub Repo](https://github.com/joxh/crm-backend-golang)
 
 ## Description
 
