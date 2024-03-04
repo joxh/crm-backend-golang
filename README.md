@@ -142,3 +142,5 @@ curl -X DELETE http://localhost:3000/customers/1
 ### API Online Documentation
 
 While running, the service exposes a page of API documentation at `http://localhost:3000/`.
+
+(This Markdown file was authored by Joshua Schoenfield with the aid of ChatGPT 4)
