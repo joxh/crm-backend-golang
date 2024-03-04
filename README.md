@@ -31,8 +31,7 @@ This application is a RESTful API service designed to manage customer informatio
 1. Clone the repository or download the source code.
 2. Navigate to the project directory.
 3. Run `go run main.go` to start the server. By default, the server will listen on port 3000. 
-
-> If you wish to run on a different port, that can be controlled by setting the `CRM_PORT` environment variable. For example, with the command `CRM_PORT=3001 go run main.go`, the server will listen on port 3001.
+   1. If you wish to run on a different port, that can be controlled by setting the `CRM_PORT` environment variable. For example, with the command `CRM_PORT=3001 go run main.go`, the server will listen on port 3001.
 
 ### API Endpoints and Responses
 
@@ -139,3 +138,7 @@ curl -X PUT http://localhost:3000/customers/1 \
 ```bash
 curl -X DELETE http://localhost:3000/customers/1
 ```
+
+### API Online Documentation
+
+While running, the service exposes a page of API documentation at `http://localhost:3000/`.
