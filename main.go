@@ -55,8 +55,7 @@ func validateIdString(writer http.ResponseWriter, request *http.Request) (int, e
 	id, convertErr := strconv.Atoi(idString)
 
 	if convertErr != nil {
-		// writer.WriteHeader(http.StatusNotFound)
-		// json.NewEncoder(writer).Encode(nil)
+
 		http.Error(writer, "Cannot convert id string \""+idString+"\" to int.", http.StatusNotFound)
 		return 0, convertErr
 	}
@@ -77,8 +76,7 @@ func getCustomer(writer http.ResponseWriter, request *http.Request) {
 		writer.WriteHeader(http.StatusOK)
 		json.NewEncoder(writer).Encode(customer)
 	} else {
-		// writer.WriteHeader(http.StatusNotFound)
-		// json.NewEncoder(writer).Encode(nil)
+
 		http.Error(writer, "Customer with ID "+strconv.Itoa(id)+" does not exist in the database.", http.StatusNotFound)
 	}
 }
@@ -102,7 +100,6 @@ func addCustomer(writer http.ResponseWriter, request *http.Request) {
 
 	if customer.ID == 0 {
 		// writer.WriteHeader(http.StatusBadRequest)
-		// json.NewEncoder(writer).Encode(nil)
 		http.Error(writer, "Customer ID cannot be 0 or non-integer type.", http.StatusBadRequest)
 		return
 	}
@@ -110,8 +107,7 @@ func addCustomer(writer http.ResponseWriter, request *http.Request) {
 	err := customerTable.AddNewCustomer(customer)
 
 	if err != nil {
-		// writer.WriteHeader(http.StatusNotFound)
-		// json.NewEncoder(writer).Encode(nil)
+
 		http.Error(writer, err.Error(), http.StatusNotFound)
 		return
 	}
@@ -136,7 +132,6 @@ func updateCustomer(writer http.ResponseWriter, request *http.Request) {
 
 	if customer.ID != id {
 		// writer.WriteHeader(http.StatusBadRequest)
-		// json.NewEncoder(writer).Encode(nil)
 		fmt.Println("Customer ID in the request body does not match the ID in the URL.")
 		http.Error(writer, "Customer ID in the request body does not match the ID in the URL.", http.StatusBadRequest)
 		return
@@ -145,8 +140,7 @@ func updateCustomer(writer http.ResponseWriter, request *http.Request) {
 	err := customerTable.UpdateExistingCustomer(customer)
 
 	if err != nil {
-		// writer.WriteHeader(http.StatusNotFound)
-		// json.NewEncoder(writer).Encode(nil)
+
 		http.Error(writer, err.Error(), http.StatusNotFound)
 		return
 	}
@@ -171,8 +165,7 @@ func deleteCustomer(writer http.ResponseWriter, request *http.Request) {
 		writer.WriteHeader(http.StatusOK)
 		json.NewEncoder(writer).Encode(customerTable)
 	} else {
-		// writer.WriteHeader(http.StatusNotFound)
-		// json.NewEncoder(writer).Encode(nil)
+
 		http.Error(writer, "Customer with ID "+strconv.Itoa(id)+" does not exist in the database.", http.StatusNotFound)
 	}
 }
