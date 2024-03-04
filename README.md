@@ -1,5 +1,7 @@
 # Customer Relationship Management Service (Golang)
 
+Author: [Joshua Schoenfield](https://github.com/joxh)
+
 ## Description
 
 This application is a RESTful API service designed to manage customer information. Built with Go and leveraging the Gorilla Mux router, it offers a simple yet powerful platform for performing CRUD (Create, Read, Update, Delete) operations on customer data.
