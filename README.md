@@ -18,17 +18,17 @@ This application is a RESTful API service designed to manage customer informatio
 
 ### Prerequisites
 
-- Go (version 1.15 or later recommended)
+- Go (version 1.15 or later recommended; Developed with 1.22.0)
 - Gorilla Mux (a powerful HTTP router and URL matcher for building Go web servers)
 
 ### Installation
 
 1. **Install Go**: Follow the official Go installation guide at https://golang.org/doc/install.
 2. **Get Gorilla Mux**: Run `go get -u github.com/gorilla/mux` to install Gorilla Mux.
+3. **Clone the repository**: Clone the repository into or download the source code. This source code should be in your Go workspace at `$GOPATH/src/github.com/joxh/crm-backend-golang`.
 
 ### Running the Application
 
-1. Clone the repository or download the source code.
 2. Navigate to the project directory.
 3. Run `go run main.go` to start the server. By default, the server will listen on port 3000. 
    1. If you wish to run on a different port, that can be controlled by setting the `CRM_PORT` environment variable. For example, with the command `CRM_PORT=3001 go run main.go`, the server will listen on port 3001.
