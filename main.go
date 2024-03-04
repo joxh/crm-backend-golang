@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/gorilla/mux"
@@ -151,7 +152,7 @@ func updateCustomer(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	writer.WriteHeader(http.StatusOK)
-	json.NewEncoder(writer).Encode(customer)
+	json.NewEncoder(writer).Encode(customerTable)
 }
 
 // Deleting a customer through a /customers/{id} path
@@ -203,7 +204,13 @@ func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	router.PathPrefix("/").Handler(fs)
 
-	port := ":3001"
+	port := os.Getenv("CRM_PORT")
+	if port == "" {
+		port = ":3000" // Default port if not specified
+	} else {
+		port = ":" + port // Ensure the port number is prefixed with ":"
+	}
+
 	fmt.Println("Server is running on port", port)
 	log.Fatal(http.ListenAndServe(port, router))
 
